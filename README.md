@@ -1,4 +1,4 @@
-# McCallister exercise
+# Home Alone exercise
 
 A small demo put together according to the exercise spec
 
