@@ -1,0 +1,35 @@
+plugins {
+    id("java")
+    id("org.springframework.boot") version("2.6.3")
+    id("io.spring.dependency-management") version("1.0.11.RELEASE")
+}
+
+ext {
+    versions = [
+        "immutables": "2.9.0",
+        "h2": "2.1.210",
+        "liquibase": "4.7.1"
+    ]
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    implementation("org.hibernate.validator:hibernate-validator")
+
+    implementation("com.h2database:h2:${versions.h2}")
+
+    compileOnly("org.immutables:value:${versions.immutables}")
+    annotationProcessor("org.immutables:value:${versions.immutables}")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+test {
+    useJUnitPlatform()
+}
