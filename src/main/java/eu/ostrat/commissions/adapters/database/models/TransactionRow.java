@@ -24,6 +24,12 @@ public class TransactionRow {
     @Column
     private String currency;
 
+    @Column(name = "original_amount", precision = 20, scale = 4)
+    private BigDecimal originalAmount;
+
+    @Column(name = "original_currency")
+    private String originalCurrency;
+
     @Column(name = "commission_amount", precision = 20, scale = 4)
     private BigDecimal commissionAmount;
 
@@ -37,6 +43,8 @@ public class TransactionRow {
         LocalDate date,
         BigDecimal amount,
         String currency,
+        BigDecimal originalAmount,
+        String originalCurrency,
         BigDecimal commissionAmount,
         String commissionCurrency
     ) {
@@ -44,6 +52,8 @@ public class TransactionRow {
         this.date = date;
         this.amount = amount;
         this.currency = currency;
+        this.originalAmount = originalAmount;
+        this.originalCurrency = originalCurrency;
         this.commissionAmount = commissionAmount;
         this.commissionCurrency = commissionCurrency;
     }
@@ -66,6 +76,14 @@ public class TransactionRow {
 
     public String getCurrency() {
         return currency;
+    }
+
+    public BigDecimal getOriginalAmount() {
+        return originalAmount;
+    }
+
+    public String getOriginalCurrency() {
+        return originalCurrency;
     }
 
     public BigDecimal getCommissionAmount() {

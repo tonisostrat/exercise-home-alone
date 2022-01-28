@@ -55,6 +55,8 @@ public class CommissionService {
             transaction.getDate(),
             convertedTransaction.getAmount(),
             convertedTransaction.getCurrency(),
+            transaction.getAmount(),
+            transaction.getCurrency(),
             commission,
             baseCurrency
         ));
